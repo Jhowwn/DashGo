@@ -1,7 +1,19 @@
 import { Flex, Icon, Input } from "@chakra-ui/react";
+import { useRef, useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 
+//Controlled components
+//uncotrolled components
+
+//Imperativa vs Declarativa
+
 export function SearchBox() {
+    // const {search, setSearch} = useState('');
+
+    const searchInoutRef = useRef<HTMLInputElement>(null)
+
+    // console.log(searchInoutRef.current.value) Imperativa
+
     return (
         <Flex
             as='label'
@@ -23,6 +35,8 @@ export function SearchBox() {
                 px='4'
                 mr='4'
                 _placeholder={{ color: 'gray.400' }}
+                ref={searchInoutRef}
+                autoFocus
             />
 
             <Icon as={RiSearchLine} fontSize='20' />
